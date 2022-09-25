@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  authApiUrl: 'https://authapi.gacegy.local/api/',
+  directoryAPI: 'https://directoryapi.gacegy.local/',
 };
 
 /*

@@ -2,6 +2,12 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "directory": "apps/directory",
+    "directory-e2e": "apps/directory-e2e",
+    "hrms": "apps/hrms",
+    "hrms-e2e": "apps/hrms-e2e",
+    "it": "apps/it",
+    "it-e2e": "apps/it-e2e",
     "main": "apps/main",
     "main-e2e": "apps/main-e2e"
   }

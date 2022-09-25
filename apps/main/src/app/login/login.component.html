@@ -1,0 +1,35 @@
+<div class="pages-body login-page flex flex-column">
+  <div class="align-self-center mt-auto mb-auto">
+      <div class="pages-panel card flex flex-column">
+          <div class="pages-header px-3 py-1">
+              <h2>LOGIN</h2>
+          </div>
+
+          <h4>Welcome</h4>
+
+          <div class="pages-detail mb-6 px-6">Please use the form to sign-in GAC Egypt Application</div>
+
+          <div class="input-panel flex flex-column px-3">
+              <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon">
+                      <i class="pi pi-envelope"></i>
+                  </span>
+                  <span class="p-float-label">
+                      <input type="text" id="username" pInputText [(ngModel)]="user.username">
+                      <label for="username">Email</label>
+                  </span>
+              </div>
+              <div class="p-inputgroup mt-3 mb-6">
+                  <span class="p-inputgroup-addon">
+                      <i class="pi pi-lock"></i>
+                  </span>
+                  <span class="p-float-label">
+                      <input type="password" id="password" pInputText [(ngModel)]="user.password">
+                      <label for="password">Password</label>
+                  </span>
+              </div>
+          </div>
+          <p-button class="login-button mb-6 px-3" (click)="login()" label="LOGIN"></p-button>
+      </div>
+  </div>
+</div>

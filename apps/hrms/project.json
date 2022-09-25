@@ -1,0 +1,113 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/hrms/src",
+  "prefix": "gacegypt",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/hrms",
+        "index": "apps/hrms/src/index.html",
+        "main": "apps/hrms/src/main.ts",
+        "polyfills": "apps/hrms/src/polyfills.ts",
+        "tsConfig": "apps/hrms/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/hrms/src/favicon.ico", "apps/hrms/src/assets"],
+        "styles": ["apps/hrms/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/hrms/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/hrms/src/environments/environment.ts",
+              "with": "apps/hrms/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/hrms/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "hrms:build:production"
+        },
+        "development": {
+          "browserTarget": "hrms:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4202,
+        "publicHost": "http://localhost:4202"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "hrms:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/hrms/**/*.ts", "apps/hrms/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/hrms"],
+      "options": {
+        "jestConfig": "apps/hrms/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/angular:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "hrms:build",
+        "port": 4202
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "hrms:build:development"
+        },
+        "production": {
+          "buildTarget": "hrms:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,57 @@
+<div
+    class="layout-wrapper"
+    [ngClass]="{
+        'p-input-filled': app.inputStyle === 'filled',
+        'p-ripple-disabled': !app.ripple,
+        'layout-menu-static': isStatic(),
+        'layout-menu-overlay': isOverlay(),
+        'layout-menu-horizontal': isHorizontal(),
+        'layout-menu-slim': isSlim(),
+        'layout-menu-active': menuActive,
+        'layout-menu-mobile-active': mobileMenuActive,
+        'layout-topbar-mobile-active': mobileTopbarActive,
+        'layout-rightmenu-active': rightMenuActive,
+        'layout-rtl': app.isRTL
+    }"
+    [class]="
+        'layout-menu-' + app.menuTheme + ' layout-topbar-' + app.topbarTheme
+    "
+>
+    <gaceg-topbar></gaceg-topbar>
+
+    <gaceg-rightmenu></gaceg-rightmenu>
+
+    <div class="menu-wrapper" (click)="onMenuClick($event)">
+        <div class="layout-menu-container">
+            <gaceg-inlinemenu
+                *ngIf="
+                    app.inlineMenuPosition === 'top' ||
+                    app.inlineMenuPosition === 'both'
+                "
+                key="top"
+            ></gaceg-inlinemenu>
+            <gaceg-menu></gaceg-menu>
+            <gaceg-inlinemenu
+                *ngIf="
+                    app.inlineMenuPosition === 'bottom' ||
+                    app.inlineMenuPosition === 'both'
+                "
+                key="bottom"
+            ></gaceg-inlinemenu>
+        </div>
+    </div>
+
+    <div class="layout-main">
+        <gaceg-breadcrumb></gaceg-breadcrumb>
+
+        <div class="layout-content">
+            <router-outlet></router-outlet>
+        </div>
+
+        <gaceg-footer></gaceg-footer>
+    </div>
+
+    <gaceg-config></gaceg-config>
+
+    <div *ngIf="mobileMenuActive" class="layout-mask modal-in"></div>
+</div>
