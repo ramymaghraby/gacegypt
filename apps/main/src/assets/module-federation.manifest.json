@@ -1,5 +1,5 @@
 {
-  "directory": "http://localhost/directory",
-  "hrms": "http://localhost/hrms",
-  "it": "http://localhost/it"
+  "directory": "http://nxtest.gacegy.local/directory",
+  "hrms": "http://nxtest.gacegy.local/hrms",
+  "it": "http://nxtest.gacegy.local/it"
 }

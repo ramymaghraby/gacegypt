@@ -3,9 +3,9 @@ const config = require('./module-federation.config');
 module.exports = withModuleFederation({
   ...config,
   remotes: [
-    ['it', 'http://localhost:8080/#/it'],
-    ['hrms', 'http://localhost:8080/#/hrms'],
-    ['directory', 'http://localhost:8080/#/directory']
+    ['it', 'http://localhost:4203'],
+    ['hrms', 'http://localhost:4202'],
+    ['directory', 'http://localhost:4201']
   ]
   /*
    * Remote overrides for production.
