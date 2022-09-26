@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { RemoteEntryComponent } from './entry.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
+import { EmployeeComponent } from '../employee/employee.component';
 
 @NgModule({
   declarations: [RemoteEntryComponent, NxWelcomeComponent],
@@ -14,6 +15,10 @@ import { NxWelcomeComponent } from './nx-welcome.component';
         path: '',
         component: RemoteEntryComponent,
       },
+      {
+        path: 'employee',
+        component: EmployeeComponent
+      }
     ]),
   ],
   providers: [],
